@@ -32,8 +32,8 @@ html {
 }
 
 .graph img {
-	width: 30px;
-	height: 30px;
+	width: 34px;
+	height: 34px;
 	/* 让整个div显示手型鼠标指向 */
 	cursor: pointer;
 	z-index: 99;
@@ -42,22 +42,13 @@ html {
 	box-shadow: -2px 0px 8px #f00, 0px -2px 8px #000, 0px 2px 8px #9e038a, 2px 0px 8px #0f0;
 }
 
-/* 图片围绕中心点一直旋转 */
-.rotate {
-	-webkit-transform: rotate(360deg);
-	animation: rotation 4s linear infinite;
-	-moz-animation: rotation 4s linear infinite;
-	-webkit-animation: rotation 4s linear infinite;
-	-o-animation: rotation 4s linear infinite;
-}
-
 @-webkit-keyframes rotation {
 	from {
-		-webkit-transform: rotate(0deg);
+		transform: rotate(0deg);
 	}
 
 	to {
-		-webkit-transform: rotate(360deg);
+		transform: rotate(360deg);
 	}
 }
 

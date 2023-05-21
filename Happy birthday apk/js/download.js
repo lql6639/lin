@@ -1,36 +1,45 @@
 window.onload = function() {
-	// 不旋转
-	document.getElementById("rotate").style.webkitAnimationPlayState = "paused";
 
-	// 点击图片实现播放音乐或不播放音乐和实现图片一直旋转或停止旋转
+	// 点击图片实现功能
 	function runing() {
 
-		var playing = 0;
+		// 设置audio初始音量
+		document.getElementById('music').volume = 0.8;
 
-		document.getElementById("rotate").onclick = function() {
+		// 点击图片实现播放音乐或不播放音乐和实现图片一直旋转或停止旋转
+		var playing = false;
 
-			if (playing == 1) {
-				// 不播放
-				document.getElementById("music").pause();
-				// 不旋转
-				playing = 0;
-				document.getElementById("rotate").style.webkitAnimationPlayState = "paused";
-			} else {
+		document.getElementById("rotate").addEventListener("click", function() {
+
+			if (!playing) {
 				// 播放
 				document.getElementById("music").play();
 				// 旋转
-				playing = 1;
-				document.getElementById("rotate").style.webkitAnimationPlayState = "running";
+				playing = true;
+				document.getElementById("rotate").style.animation = "rotation 4s linear infinite";
+			} else {
+				// 不播放
+				document.getElementById("music").pause();
+				// 不旋转
+				playing = false;
+				document.getElementById("rotate").style.webkitAnimationPlayState = "paused";
 			}
-		}
+		})
+
+		// 添加audio对play事件的监听器
+		document.getElementById("music").addEventListener("play", function() {
+			playing = true;
+			document.getElementById("rotate").style.animation = "rotation 4s linear infinite";
+		});
+
+		// 添加audio对pause事件的监听器
+		document.getElementById("music").addEventListener("pause", function() {
+			playing = false;
+			document.getElementById("rotate").style.webkitAnimationPlayState = "paused";
+		});
+
 	}
 	runing()
-
-	// 设置audio初始音量
-	function getVideo() {
-		document.getElementById('music').volume = 0.8;
-	}
-	getVideo()
 
 	var stop, staticx;
 	var img = new Image();
