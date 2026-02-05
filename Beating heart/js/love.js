@@ -1,7 +1,7 @@
 window.onload = function() {
 
 	// 刷新html页面实现gif的重新播放
-	document.getElementById('img').src = document.getElementById('img').src;
+	// document.getElementById('img').src = document.getElementById('img').src;
 
 	// 点击图片实现功能
 	function runing() {
@@ -295,4 +295,5 @@ window.onload = function() {
 			render();
 		}, 10);
 	})(document.getElementById("heart"));
+
 }
